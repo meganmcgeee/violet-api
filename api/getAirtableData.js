@@ -6,7 +6,7 @@ const map = require(`lodash/fp/map`);
 const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY || `keyhxGoAKpWTeZbHq`;
 
 module.exports = endpoint => () => {
-  return axios.get(`https://api.airtable.com/v0/appSJgJTAG6l4PfT9/${endpoint}?api_key=${AIRTABLE_API_KEY}`)
+  return axios.get(`https://api.airtable.com/v0/appSJgJTAG6l4PfT9/drugInfo?api_key=${AIRTABLE_API_KEY}`)
     .then(get(`data.records`))
     .then(map(toFBMessage))
     .then(compact)
