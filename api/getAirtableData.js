@@ -15,12 +15,15 @@ module.exports = endpoint => () => {
   function toFBMessage({
     fields: {
       drugName: drugName,
-      isCombination: isCombination
+      isCombination: isCombination,
+      sideEffects: sideEffects,
+      conditionsItHelps: conditionsItHelps,
+      conditionsItWorsens: conditionsItWorsens
     },
   }) {
     if (isCombination === `No`) {
       return {
-        text: `${drugName} is rad`,
+        text: `${drugName} is a progestin pill that may produce the following side effects: ${sideEffects}. It may help with the following conditions: ${conditionsItHelps}. It may worsen the following conditions ${conditionsItWorsens} `,
       };
     }
 
